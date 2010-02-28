@@ -1,8 +1,8 @@
-%global iversion         190.42
+%global iversion         195.36.08
 
 Name:           nvidia-xconfig
 Version:        1.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        NVIDIA X configuration file editor
 
 Group:          Applications/System
@@ -55,6 +55,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/nvidia-xconfig.1.*
 
 %changelog
+* Sun Feb 28 2010 Nicolas Chauvet <kwizart@fedoraproject.org> - 1.0-2
+- Update internal version to 195.36.08
+
 * Mon Oct 26 2009 kwizart < kwizart at gmail.com > - 1.0-1
 - Update internal version to 190.42
 
