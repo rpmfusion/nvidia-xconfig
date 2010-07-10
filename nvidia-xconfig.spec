@@ -1,14 +1,14 @@
-%global iversion         195.36.08
+%global nversion         256.35
 
 Name:           nvidia-xconfig
 Version:        1.0
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        NVIDIA X configuration file editor
 
 Group:          Applications/System
 License:        GPLv2+
 URL:            http://cgit.freedesktop.org/~aplattner/nvidia-xconfig/
-Source0:        http://cgit.freedesktop.org/~aplattner/nvidia-xconfig/snapshot/nvidia-xconfig-%{iversion}.tar.bz2
+Source0:        http://cgit.freedesktop.org/~aplattner/nvidia-xconfig/snapshot/nvidia-xconfig-%{nversion}.tar.bz2
 Patch0:         nvidia-xconfig-1.0-default.patch
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
@@ -21,6 +21,7 @@ ExclusiveArch: i386 x86_64
 %endif
 
 BuildRequires: m4
+Provides: %{name}-nversion = %{nversion}
 
 
 %description
@@ -29,18 +30,28 @@ NVIDIA X configuration file editor.
 
 
 %prep
-%setup -q -n nvidia-xconfig-%{iversion}
-%patch0 -p1 -b .default
+%setup -q -n nvidia-xconfig-%{nversion}
+
+sed -i -e 's|/usr/local|$(DESTDIR)/%{_prefix}|g' utils.mk
 
 
 %build
-make CFLAGS="$RPM_OPT_FLAGS -IXF86Config-parser" NVDEBUG=1
+make  \
+  NVDEBUG=1 \
+  NV_VERBOSE=1 \
+  X_LDFLAGS="-L%{_libdir}" \
+  CC_ONLY_CFLAGS="$RPM_OPT_FLAGS"
 
 
 %install
 rm -rf $RPM_BUILD_ROOT
 mkdir -p $RPM_BUILD_ROOT%{_sbindir}
-make install ROOT=$RPM_BUILD_ROOT INSTALL="install -p"
+make install DESTDIR=$RPM_BUILD_ROOT INSTALL="install -p"
+
+#We usually have it in sbin
+mv $RPM_BUILD_ROOT%{_bindir}/nvidia-xconfig \
+  $RPM_BUILD_ROOT%{_sbindir}
+rmdir $RPM_BUILD_ROOT%{_bindir}
 
 
 
@@ -55,6 +66,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/nvidia-xconfig.1.*
 
 %changelog
+* Sat Jul 10 2010 Nicolas Chauvet <kwizart@gmail.com> - 1.0-3
+- Update internal version to 256.35
+- Provides %%{name}-nversion
+
 * Sun Feb 28 2010 Nicolas Chauvet <kwizart@fedoraproject.org> - 1.0-2
 - Update internal version to 195.36.08
 
