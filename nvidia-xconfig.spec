@@ -1,8 +1,8 @@
-%global nversion         256.35
+%global nversion         256.53
 
 Name:           nvidia-xconfig
 Version:        1.0
-Release:        3%{?dist}
+Release:        4%{?dist}
 Summary:        NVIDIA X configuration file editor
 
 Group:          Applications/System
@@ -66,6 +66,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/nvidia-xconfig.1.*
 
 %changelog
+* Mon Sep 06 2010 Nicolas Chauvet <kwizart@gmail.com> - 1.0-4
+- Update internal version to 256.53
+
 * Sat Jul 10 2010 Nicolas Chauvet <kwizart@gmail.com> - 1.0-3
 - Update internal version to 256.35
 - Provides %%{name}-nversion
