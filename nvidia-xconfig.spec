@@ -2,7 +2,7 @@
 
 Name:           nvidia-xconfig
 Version:        1.0
-Release:        4%{?dist}
+Release:        5%{?dist}
 Summary:        NVIDIA X configuration file editor
 
 Group:          Applications/System
@@ -66,6 +66,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/nvidia-xconfig.1.*
 
 %changelog
+* Sun Oct 10 2010 Nicolas Chauvet <kwizart@gmail.com> - 1.0-5
+- Update internal version to 260.19.06
+
 * Mon Sep 06 2010 Nicolas Chauvet <kwizart@gmail.com> - 1.0-4
 - Update internal version to 256.53
 
