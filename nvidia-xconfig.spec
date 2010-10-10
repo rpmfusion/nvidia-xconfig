@@ -1,4 +1,4 @@
-%global nversion         256.53
+%global nversion         260.19.06
 
 Name:           nvidia-xconfig
 Version:        1.0
