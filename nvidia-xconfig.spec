@@ -1,14 +1,14 @@
-%global nversion         295.33
+%global nversion         295.40
 
 Name:           nvidia-xconfig
 Version:        1.0
-Release:        13%{?dist}
+Release:        14%{?dist}
 Summary:        NVIDIA X configuration file editor
 
 Group:          Applications/System
 License:        GPLv2+
 URL:            http://cgit.freedesktop.org/~aplattner/nvidia-xconfig/
-Source0:        http://cgit.freedesktop.org/~aplattner/nvidia-xconfig/snapshot/nvidia-xconfig-%{nversion}.tar.bz2
+Source0:        ftp://download.nvidia.com/XFree86/nvidia-xconfig/nvidia-xconfig-%{nversion}.tar.bz2
 Patch0:         nvidia-xconfig-1.0-default.patch
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
@@ -66,6 +66,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/nvidia-xconfig.1.*
 
 %changelog
+* Wed Apr 11 2012 leigh scott <leigh123linux@googlemail.com> - 1.0-14
+- Update to 295.40
+- Fix source url
+
 * Sun Mar 25 2012 leigh scott <leigh123linux@googlemail.com> - 1.0-13
 - Update to 295.33
 
