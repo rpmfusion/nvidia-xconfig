@@ -1,14 +1,14 @@
-%global nversion         302.11
+%global nversion         302.17
 
 Name:           nvidia-xconfig
 Version:        1.0
-Release:        17%{?dist}
+Release:        18%{?dist}
 Summary:        NVIDIA X configuration file editor
 
 Group:          Applications/System
 License:        GPLv2+
 URL:            http://cgit.freedesktop.org/~aplattner/nvidia-xconfig/
-Source0:        ftp://download.nvidia.com/XFree86/nvidia-xconfig/nvidia-xconfig-%{nversion}.tar.bz2
+Source0:        http://cgit.freedesktop.org/~aplattner/nvidia-xconfig/snapshot/nvidia-xconfig-%{nversion}.tar.bz2
 Patch0:         nvidia-xconfig-1.0-default.patch
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
@@ -66,6 +66,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/nvidia-xconfig.1.*
 
 %changelog
+* Sun Jun 17 2012 leigh scott <leigh123linux@googlemail.com> - 1.0-18
+- Update to 302.17
+
 * Tue May 22 2012 leigh scott <leigh123linux@googlemail.com> - 1.0-17
 - Update to 302.11
 
