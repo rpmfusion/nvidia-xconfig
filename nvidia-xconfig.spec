@@ -1,8 +1,8 @@
-%global nversion         310.14
+%global nversion         313.18
 
 Name:           nvidia-xconfig
 Version:        1.0
-Release:        25%{?dist}
+Release:        26%{?dist}
 Summary:        NVIDIA X configuration file editor
 
 Group:          Applications/System
@@ -66,6 +66,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/nvidia-xconfig.1.*
 
 %changelog
+* Wed Jan 16 2013 Leigh Scott <leigh123linux@googlemail.com> - 1.0-26
+- Update to 313.18
+
 * Tue Oct 16 2012 Leigh Scott <leigh123linux@googlemail.com> - 1.0-25
 - Update to 310.14
 
