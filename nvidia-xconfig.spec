@@ -1,19 +1,19 @@
-%global nversion         304.60
+%global nversion         319.32
 
 Name:           nvidia-xconfig
-Version:        1.0
-Release:        25%{?dist}
+Version:        %{nversion}
+Release:        1%{?dist}
 Summary:        NVIDIA X configuration file editor
 
 Group:          Applications/System
 License:        GPLv2+
 URL:            http://cgit.freedesktop.org/~aplattner/nvidia-xconfig/
-Source0:        http://cgit.freedesktop.org/~aplattner/nvidia-xconfig/snapshot/nvidia-xconfig-%{nversion}.tar.bz2
+Source0:        ftp://download.nvidia.com/XFree86/nvidia-xconfig/nvidia-xconfig-%{nversion}.tar.bz2
 Patch0:         nvidia-xconfig-1.0-default.patch
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 %if 0%{?fedora} > 11 || 0%{?rhel} > 5
-ExclusiveArch: i686 x86_64
+ExclusiveArch: i686 x86_64 armv7hl
 %else 0%{?fedora} == 11
 ExclusiveArch: i586 x86_64
 %else
@@ -50,8 +50,10 @@ make install DESTDIR=$RPM_BUILD_ROOT INSTALL="install -p"
 
 #We usually have it in sbin
 mv $RPM_BUILD_ROOT%{_bindir}/nvidia-xconfig \
-  $RPM_BUILD_ROOT%{_sbindir}
-rmdir $RPM_BUILD_ROOT%{_bindir}
+  $RPM_BUILD_ROOT%{_sbindir}/nvidia-xconfig-current
+
+mv $RPM_BUILD_ROOT%{_mandir}/man1/nvidia-xconfig.1.gz \
+  $RPM_BUILD_ROOT%{_mandir}/man1/nvidia-xconfig-current.1.gz
 
 
 
@@ -62,12 +64,27 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(-,root,root,-)
 %doc COPYING
-%{_sbindir}/nvidia-xconfig
-%{_mandir}/man1/nvidia-xconfig.1.*
+%{_sbindir}/nvidia-xconfig-current
+%{_mandir}/man1/nvidia-xconfig-current.1.*
 
 %changelog
-* Thu Oct 18 2012 Leigh Scott <leigh123linux@googlemail.com> - 1.0-25
-- Update to 304.60
+* Sun Jul 21 2013 Nicolas Chauvet <kwizart@gmail.com> - 319.32-1
+- Build an empty package to workaround yum issue with obsoletes
+
+* Thu Jun 27 2013 Nicolas Chauvet <kwizart@gmail.com> - 1.0-29
+- Update to 319.32
+
+* Fri May 24 2013 Leigh Scott <leigh123linux@googlemail.com> - 1.0-28
+- Update to 319.23
+
+* Mon May 13 2013 Leigh Scott <leigh123linux@googlemail.com> - 1.0-27
+- Update to 319.17
+
+* Wed Jan 16 2013 Leigh Scott <leigh123linux@googlemail.com> - 1.0-26
+- Update to 313.18
+
+* Tue Oct 16 2012 Leigh Scott <leigh123linux@googlemail.com> - 1.0-25
+- Update to 310.14
 
 * Mon Sep 24 2012 Leigh Scott <leigh123linux@googlemail.com> - 1.0-24
 - Update to 304.51
