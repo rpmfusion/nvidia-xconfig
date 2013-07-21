@@ -1,8 +1,8 @@
 %global nversion         319.32
 
 Name:           nvidia-xconfig
-Version:        1.0
-Release:        29%{?dist}
+Version:        %{nversion}
+Release:        1%{?dist}
 Summary:        NVIDIA X configuration file editor
 
 Group:          Applications/System
@@ -13,7 +13,7 @@ Patch0:         nvidia-xconfig-1.0-default.patch
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 %if 0%{?fedora} > 11 || 0%{?rhel} > 5
-ExclusiveArch: i686 x86_64
+ExclusiveArch: i686 x86_64 armv7hl
 %else 0%{?fedora} == 11
 ExclusiveArch: i586 x86_64
 %else
@@ -50,8 +50,10 @@ make install DESTDIR=$RPM_BUILD_ROOT INSTALL="install -p"
 
 #We usually have it in sbin
 mv $RPM_BUILD_ROOT%{_bindir}/nvidia-xconfig \
-  $RPM_BUILD_ROOT%{_sbindir}
-rmdir $RPM_BUILD_ROOT%{_bindir}
+  $RPM_BUILD_ROOT%{_sbindir}/nvidia-xconfig-current
+
+mv $RPM_BUILD_ROOT%{_mandir}/man1/nvidia-xconfig.1.gz \
+  $RPM_BUILD_ROOT%{_mandir}/man1/nvidia-xconfig-current.1.gz
 
 
 
@@ -62,10 +64,13 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(-,root,root,-)
 %doc COPYING
-%{_sbindir}/nvidia-xconfig
-%{_mandir}/man1/nvidia-xconfig.1.*
+%{_sbindir}/nvidia-xconfig-current
+%{_mandir}/man1/nvidia-xconfig-current.1.*
 
 %changelog
+* Sun Jul 21 2013 Nicolas Chauvet <kwizart@gmail.com> - 319.32-1
+- Build an empty package to workaround yum issue with obsoletes
+
 * Thu Jun 27 2013 Nicolas Chauvet <kwizart@gmail.com> - 1.0-29
 - Update to 319.32
 
