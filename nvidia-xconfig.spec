@@ -2,7 +2,7 @@
 
 Name:           nvidia-xconfig
 Version:        %{nversion}
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        NVIDIA X configuration file editor
 
 Group:          Applications/System
@@ -68,6 +68,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/nvidia-xconfig-current.1.*
 
 %changelog
+* Sun Mar 26 2017 RPM Fusion Release Engineering <kwizart@rpmfusion.org> - 319.32-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_26_Mass_Rebuild
+
 * Sun Jul 21 2013 Nicolas Chauvet <kwizart@gmail.com> - 319.32-1
 - Build an empty package to workaround yum issue with obsoletes
 
