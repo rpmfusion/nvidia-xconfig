@@ -11,6 +11,7 @@ Patch0:         nvidia-xconfig-1.0-default.patch
 
 ExclusiveArch: i686 x86_64 armv7hl aarch64 ppc64le
 
+BuildRequires: hostname
 BuildRequires: m4
 
 
@@ -29,8 +30,10 @@ sed -i -e 's|/usr/local|%{_prefix}|g' utils.mk
 make  \
   NVDEBUG=1 \
   NV_VERBOSE=1 \
+  STRIP_CMD=true NV_KEEP_UNSTRIPPED_BINARIES=1 \
   X_LDFLAGS="-L%{_libdir}" \
   CC_ONLY_CFLAGS="%{optflags}"
+(cd _out/Linux_*/ ; cp %{name}.unstripped %{name} ; cd -)
 
 
 %install
