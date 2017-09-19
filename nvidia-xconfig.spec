@@ -9,7 +9,7 @@ URL:            https://download.nvidia.com/XFree86/nvidia-xconfig
 Source0:        %{url}/nvidia-xconfig-%{version}.tar.bz2
 Patch0:         nvidia-xconfig-1.0-default.patch
 
-ExclusiveArch: i686 x86_64 armv7hl
+ExclusiveArch: i686 x86_64 armv7hl aarch64 ppc64le
 
 BuildRequires: m4
 
@@ -40,7 +40,7 @@ mkdir -p %{buildroot}%{_sbindir}
 
 %files
 %license COPYING
-%{_sbindir}/nvidia-xconfig
+%{_bindir}/nvidia-xconfig
 %{_mandir}/man1/nvidia-xconfig.1.*
 
 
