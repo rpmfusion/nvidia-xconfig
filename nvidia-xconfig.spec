@@ -1,5 +1,5 @@
 Name:           nvidia-xconfig
-Version:        384.59
+Version:        384.90
 Release:        1%{?dist}
 Summary:        NVIDIA X configuration file editor
 
@@ -48,6 +48,9 @@ mkdir -p %{buildroot}%{_sbindir}
 
 
 %changelog
+* Tue Sep 26 2017 Leigh Scott <leigh123linux@googlemail.com> - 384.90-1
+- Update to 384.90
+
 * Thu Aug 03 2017 Nicolas Chauvet <kwizart@gmail.com> - 384.59-1
 - Update to 384.59
 
