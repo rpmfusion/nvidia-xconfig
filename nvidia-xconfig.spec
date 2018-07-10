@@ -1,5 +1,5 @@
 Name:           nvidia-xconfig
-Version:        390.48
+Version:        396.24
 Release:        1%{?dist}
 Summary:        NVIDIA X configuration file editor
 
@@ -9,7 +9,7 @@ URL:            https://download.nvidia.com/XFree86/nvidia-xconfig
 Source0:        %{url}/nvidia-xconfig-%{version}.tar.bz2
 Patch0:         nvidia-xconfig-1.0-default.patch
 
-ExclusiveArch: i686 x86_64 armv7hl
+ExclusiveArch: x86_64
 
 BuildRequires: hostname
 BuildRequires: m4
@@ -48,6 +48,9 @@ mkdir -p %{buildroot}%{_sbindir}
 
 
 %changelog
+* Fri May 04 2018 Leigh Scott <leigh123linux@googlemail.com> - 396.24-1
+- Update to 396.24
+
 * Thu Mar 29 2018 Leigh Scott <leigh123linux@googlemail.com> - 390.48-1
 - Update to 390.48
 
