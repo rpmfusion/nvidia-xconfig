@@ -1,6 +1,6 @@
 Name:           nvidia-xconfig
 Version:        396.45
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        NVIDIA X configuration file editor
 
 Group:          Applications/System
@@ -48,6 +48,9 @@ mkdir -p %{buildroot}%{_sbindir}
 
 
 %changelog
+* Fri Jul 27 2018 RPM Fusion Release Engineering <sergio@serjux.com> - 396.45-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_29_Mass_Rebuild
+
 * Fri Jul 20 2018 Leigh Scott <leigh123linux@googlemail.com> - 396.45-1
 - Update to 396.45
 
