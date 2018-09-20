@@ -11,6 +11,7 @@ Patch0:         nvidia-xconfig-1.0-default.patch
 
 ExclusiveArch: x86_64
 
+BuildRequires: gcc
 BuildRequires: hostname
 BuildRequires: m4
 
