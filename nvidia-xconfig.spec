@@ -3,7 +3,6 @@ Version:        410.57
 Release:        1%{?dist}
 Summary:        NVIDIA X configuration file editor
 
-Group:          Applications/System
 License:        GPLv2+
 URL:            https://download.nvidia.com/XFree86/nvidia-xconfig
 Source0:        %{url}/nvidia-xconfig-%{version}.tar.bz2
