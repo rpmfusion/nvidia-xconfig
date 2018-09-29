@@ -1,6 +1,7 @@
 Name:           nvidia-xconfig
+Epoch:          3
 Version:        410.57
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        NVIDIA X configuration file editor
 
 License:        GPLv2+
@@ -48,6 +49,9 @@ mkdir -p %{buildroot}%{_sbindir}
 
 
 %changelog
+* Sat Sep 29 2018 Leigh Scott <leigh123linux@googlemail.com> - 3:410.57-2
+- Match the cuda repo epoch
+
 * Thu Sep 20 2018 Leigh Scott <leigh123linux@googlemail.com> - 410.57-1
 - Update to 410.57 beta
 
