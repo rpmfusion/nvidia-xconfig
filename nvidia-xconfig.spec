@@ -1,27 +1,19 @@
-%global nversion         319.32
-
 Name:           nvidia-xconfig
-Version:        %{nversion}
+Epoch:          3
+Version:        410.73
 Release:        1%{?dist}
 Summary:        NVIDIA X configuration file editor
 
-Group:          Applications/System
 License:        GPLv2+
-URL:            http://cgit.freedesktop.org/~aplattner/nvidia-xconfig/
-Source0:        ftp://download.nvidia.com/XFree86/nvidia-xconfig/nvidia-xconfig-%{nversion}.tar.bz2
+URL:            https://download.nvidia.com/XFree86/nvidia-xconfig
+Source0:        %{url}/nvidia-xconfig-%{version}.tar.bz2
 Patch0:         nvidia-xconfig-1.0-default.patch
-BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
-%if 0%{?fedora} > 11 || 0%{?rhel} > 5
-ExclusiveArch: i686 x86_64 armv7hl
-%else 0%{?fedora} == 11
-ExclusiveArch: i586 x86_64
-%else
-ExclusiveArch: i386 x86_64
-%endif
+ExclusiveArch: x86_64
 
+BuildRequires: gcc
+BuildRequires: hostname
 BuildRequires: m4
-Provides: %{name}-nversion = %{nversion}
 
 
 %description
@@ -30,7 +22,7 @@ NVIDIA X configuration file editor.
 
 
 %prep
-%setup -q -n nvidia-xconfig-%{nversion}
+%setup -q
 
 sed -i -e 's|/usr/local|%{_prefix}|g' utils.mk
 
@@ -39,35 +31,81 @@ sed -i -e 's|/usr/local|%{_prefix}|g' utils.mk
 make  \
   NVDEBUG=1 \
   NV_VERBOSE=1 \
+  STRIP_CMD=true NV_KEEP_UNSTRIPPED_BINARIES=1 \
   X_LDFLAGS="-L%{_libdir}" \
-  CC_ONLY_CFLAGS="$RPM_OPT_FLAGS"
+  CC_ONLY_CFLAGS="%{optflags}"
+(cd _out/Linux_*/ ; cp %{name}.unstripped %{name} ; cd -)
 
 
 %install
-rm -rf $RPM_BUILD_ROOT
-mkdir -p $RPM_BUILD_ROOT%{_sbindir}
-make install DESTDIR=$RPM_BUILD_ROOT INSTALL="install -p"
-
-#We usually have it in sbin
-mv $RPM_BUILD_ROOT%{_bindir}/nvidia-xconfig \
-  $RPM_BUILD_ROOT%{_sbindir}/nvidia-xconfig-current
-
-mv $RPM_BUILD_ROOT%{_mandir}/man1/nvidia-xconfig.1.gz \
-  $RPM_BUILD_ROOT%{_mandir}/man1/nvidia-xconfig-current.1.gz
-
-
-
-%clean
-rm -rf $RPM_BUILD_ROOT
+mkdir -p %{buildroot}%{_sbindir}
+%make_install INSTALL="install -p"
 
 
 %files
-%defattr(-,root,root,-)
-%doc COPYING
-%{_sbindir}/nvidia-xconfig-current
-%{_mandir}/man1/nvidia-xconfig-current.1.*
+%license COPYING
+%{_bindir}/nvidia-xconfig
+%{_mandir}/man1/nvidia-xconfig.1.*
+
 
 %changelog
+* Thu Oct 25 2018 Leigh Scott <leigh123linux@googlemail.com> - 3:410.73-1
+- Update to 410.73 release
+
+* Tue Oct 16 2018 Leigh Scott <leigh123linux@googlemail.com> - 3:410.66-1
+- Update to 410.66 release
+
+* Sat Sep 29 2018 Leigh Scott <leigh123linux@googlemail.com> - 3:410.57-2
+- Match the cuda repo epoch
+
+* Thu Sep 20 2018 Leigh Scott <leigh123linux@googlemail.com> - 410.57-1
+- Update to 410.57 beta
+
+* Wed Aug 22 2018 Leigh Scott <leigh123linux@googlemail.com> - 396.54-1
+- Update to 396.54
+
+* Sat Aug 04 2018 Leigh Scott <leigh123linux@googlemail.com> - 396.51-1
+- Update to 396.51
+
+* Fri Jul 27 2018 RPM Fusion Release Engineering <sergio@serjux.com> - 396.45-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_29_Mass_Rebuild
+
+* Fri Jul 20 2018 Leigh Scott <leigh123linux@googlemail.com> - 396.45-1
+- Update to 396.45
+
+* Fri May 04 2018 Leigh Scott <leigh123linux@googlemail.com> - 396.24-1
+- Update to 396.24
+
+* Thu Mar 29 2018 Leigh Scott <leigh123linux@googlemail.com> - 390.48-1
+- Update to 390.48
+
+* Tue Mar 13 2018 Leigh Scott <leigh123linux@googlemail.com> - 390.42-1
+- Update to 390.42
+
+* Fri Mar 02 2018 RPM Fusion Release Engineering <leigh123linux@googlemail.com> - 390.25-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_28_Mass_Rebuild
+
+* Mon Jan 29 2018 Leigh Scott <leigh123linux@googlemail.com> - 390.25-1
+- Update to 390.25
+
+* Thu Jan 11 2018 Leigh Scott <leigh123linux@googlemail.com> - 390.12-1
+- Update to 390.12
+
+* Sat Dec 02 2017 Leigh Scott <leigh123linux@googlemail.com> - 387.34-1
+- Update to 387.34
+
+* Mon Oct 30 2017 Nicolas Chauvet <kwizart@gmail.com> - 387.22-1
+- Update to 387.22
+
+* Tue Sep 26 2017 Leigh Scott <leigh123linux@googlemail.com> - 384.90-1
+- Update to 384.90
+
+* Thu Aug 03 2017 Nicolas Chauvet <kwizart@gmail.com> - 384.59-1
+- Update to 384.59
+
+* Sun Mar 26 2017 RPM Fusion Release Engineering <kwizart@rpmfusion.org> - 319.32-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_26_Mass_Rebuild
+
 * Sun Jul 21 2013 Nicolas Chauvet <kwizart@gmail.com> - 319.32-1
 - Build an empty package to workaround yum issue with obsoletes
 
