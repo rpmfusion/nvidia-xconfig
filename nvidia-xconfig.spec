@@ -1,6 +1,6 @@
 Name:           nvidia-xconfig
 Epoch:          3
-Version:        430.40
+Version:        440.31
 Release:        1%{?dist}
 Summary:        NVIDIA X configuration file editor
 
@@ -49,6 +49,21 @@ mkdir -p %{buildroot}%{_sbindir}
 
 
 %changelog
+* Mon Nov 04 2019 Leigh Scott <leigh123linux@gmail.com> - 3:440.31-1
+- Update to 440.31 release
+
+* Thu Oct 17 2019 Leigh Scott <leigh123linux@googlemail.com> - 3:440.26-1
+- Update to 440.26 beta
+
+* Fri Aug 30 2019 Leigh Scott <leigh123linux@googlemail.com> - 3:435.21-1
+- Update to 435.21 release
+
+* Tue Aug 13 2019 Leigh Scott <leigh123linux@googlemail.com> - 3:435.17-1
+- Update to 435.17 beta
+
+* Sat Aug 10 2019 RPM Fusion Release Engineering <leigh123linux@gmail.com> - 3:430.40-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_31_Mass_Rebuild
+
 * Mon Jul 29 2019 Leigh Scott <leigh123linux@googlemail.com> - 3:430.40-1
 - Update to 430.40 release
 
