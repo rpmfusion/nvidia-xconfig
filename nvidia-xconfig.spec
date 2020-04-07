@@ -1,6 +1,6 @@
 Name:           nvidia-xconfig
 Epoch:          3
-Version:        440.64
+Version:        440.82
 Release:        1%{?dist}
 Summary:        NVIDIA X configuration file editor
 
@@ -49,6 +49,9 @@ mkdir -p %{buildroot}%{_sbindir}
 
 
 %changelog
+* Tue Apr 07 2020 leigh123linux <leigh123linux@googlemail.com> - 3:440.82-1
+- Update to 440.82 release
+
 * Fri Feb 28 2020 leigh123linux <leigh123linux@googlemail.com> - 3:440.64-1
 - Update to 440.64 release
 
