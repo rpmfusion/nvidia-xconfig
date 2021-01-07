@@ -1,6 +1,6 @@
 Name:           nvidia-xconfig
 Epoch:          3
-Version:        455.45.01
+Version:        460.32.03
 Release:        1%{?dist}
 Summary:        NVIDIA X configuration file editor
 
@@ -49,6 +49,12 @@ mkdir -p %{buildroot}%{_sbindir}
 
 
 %changelog
+* Thu Jan  7 2021 Leigh Scott <leigh123linux@gmail.com> - 3:460.32.03-1
+- Update to 460.32.03 release
+
+* Wed Dec 16 2020 Leigh Scott <leigh123linux@gmail.com> - 3:460.27.04-1
+- Update to 460.27.04 beta
+
 * Wed Nov 18 2020 Leigh Scott <leigh123linux@gmail.com> - 3:455.45.01-1
 - Update to 455.45.01 release
 
