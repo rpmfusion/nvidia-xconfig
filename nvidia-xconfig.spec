@@ -15,6 +15,8 @@ BuildRequires: gcc
 BuildRequires: hostname
 BuildRequires: m4
 
+Requires: xorg-x11-drv-nvidia >= %{epoch}:%{version}
+
 
 %description
 NVIDIA X configuration file editor.
