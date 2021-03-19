@@ -1,6 +1,6 @@
 Name:           nvidia-xconfig
 Epoch:          3
-Version:        460.56
+Version:        460.67
 Release:        1%{?dist}
 Summary:        NVIDIA X configuration file editor
 
@@ -14,6 +14,8 @@ ExclusiveArch: x86_64
 BuildRequires: gcc
 BuildRequires: hostname
 BuildRequires: m4
+
+Requires: xorg-x11-drv-nvidia >= %{epoch}:%{version}
 
 
 %description
@@ -49,6 +51,9 @@ mkdir -p %{buildroot}%{_sbindir}
 
 
 %changelog
+* Fri Mar 19 2021 Leigh Scott <leigh123linux@gmail.com> - 3:460.67-1
+- Update to 460.67 release
+
 * Thu Feb 25 2021 Leigh Scott <leigh123linux@gmail.com> - 3:460.56-1
 - Update to 460.56 release
 
