@@ -1,12 +1,12 @@
 Name:           nvidia-xconfig
 Epoch:          3
-Version:        495.44
+Version:        495.46
 Release:        1%{?dist}
 Summary:        NVIDIA X configuration file editor
 
 License:        GPLv2+
-URL:            https://download.nvidia.com/XFree86/%{name}/
-Source0:        %{url}/%{name}-%{version}.tar.bz2
+URL:            https://github.com/NVIDIA/%{name}
+Source0:        %url/archive/%{version}/%{name}-%{version}.tar.gz
 Patch0:         nvidia-xconfig-1.0-default.patch
 
 ExclusiveArch: x86_64
@@ -51,6 +51,9 @@ mkdir -p %{buildroot}%{_sbindir}
 
 
 %changelog
+* Tue Dec 14 2021 Leigh Scott <leigh123linux@gmail.com> - 3:495.46-1
+- Update to 495.46 release
+
 * Tue Oct 26 2021 Leigh Scott <leigh123linux@gmail.com> - 3:495.44-1
 - Update to 495.44 release
 
