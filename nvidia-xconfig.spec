@@ -14,6 +14,7 @@ ExclusiveArch: x86_64
 BuildRequires: gcc
 BuildRequires: hostname
 BuildRequires: m4
+BuildRequires: libpciaccess-devel
 
 Requires: xorg-x11-drv-nvidia >= %{epoch}:%{version}
 
