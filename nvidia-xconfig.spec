@@ -1,7 +1,7 @@
 Name:           nvidia-xconfig
 Epoch:          3
-Version:        510.47.03
-Release:        2%{?dist}
+Version:        510.54
+Release:        1%{?dist}
 Summary:        NVIDIA X configuration file editor
 
 License:        GPLv2+
@@ -52,6 +52,9 @@ mkdir -p %{buildroot}%{_sbindir}
 
 
 %changelog
+* Mon Feb 14 2022 Nicolas Chauvet <kwizart@gmail.com> - 3:510.54-1
+- Update to 510.54
+
 * Thu Feb 10 2022 RPM Fusion Release Engineering <sergiomb@rpmfusion.org> - 3:510.47.03-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_36_Mass_Rebuild
 
