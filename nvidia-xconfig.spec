@@ -1,12 +1,12 @@
 Name:           nvidia-xconfig
 Epoch:          3
-Version:        495.44
+Version:        510.68.02
 Release:        1%{?dist}
 Summary:        NVIDIA X configuration file editor
 
 License:        GPLv2+
-URL:            https://download.nvidia.com/XFree86/%{name}/
-Source0:        %{url}/%{name}-%{version}.tar.bz2
+URL:            https://github.com/NVIDIA/%{name}
+Source0:        %url/archive/%{version}/%{name}-%{version}.tar.gz
 Patch0:         nvidia-xconfig-1.0-default.patch
 
 ExclusiveArch: x86_64
@@ -14,6 +14,7 @@ ExclusiveArch: x86_64
 BuildRequires: gcc
 BuildRequires: hostname
 BuildRequires: m4
+BuildRequires: libpciaccess-devel
 
 Requires: xorg-x11-drv-nvidia >= %{epoch}:%{version}
 
@@ -51,6 +52,27 @@ mkdir -p %{buildroot}%{_sbindir}
 
 
 %changelog
+* Tue Apr 26 2022 Nicolas Chauvet <kwizart@gmail.com> - 3:510.68.02-1
+- Update to 510.68.02
+
+* Wed Mar 23 2022 Leigh Scott <leigh123linux@gmail.com> - 3:510.60.02-1
+- Update to 510.60.02 release
+
+* Mon Feb 14 2022 Nicolas Chauvet <kwizart@gmail.com> - 3:510.54-1
+- Update to 510.54
+
+* Thu Feb 10 2022 RPM Fusion Release Engineering <sergiomb@rpmfusion.org> - 3:510.47.03-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_36_Mass_Rebuild
+
+* Tue Feb 01 2022 Leigh Scott <leigh123linux@gmail.com> - 3:510.47.03-1
+- Update to 510.47.03 release
+
+* Wed Jan 12 2022 Leigh Scott <leigh123linux@gmail.com> - 3:510.39.01-1
+- Update to 510.39.01 beta
+
+* Tue Dec 14 2021 Leigh Scott <leigh123linux@gmail.com> - 3:495.46-1
+- Update to 495.46 release
+
 * Tue Oct 26 2021 Leigh Scott <leigh123linux@gmail.com> - 3:495.44-1
 - Update to 495.44 release
 
