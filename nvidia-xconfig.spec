@@ -1,7 +1,7 @@
 Name:           nvidia-xconfig
 Epoch:          3
-Version:        515.76
-Release:        2%{?dist}
+Version:        520.56.06
+Release:        1%{?dist}
 Summary:        NVIDIA X configuration file editor
 
 License:        GPLv2+
@@ -53,6 +53,9 @@ mkdir -p %{buildroot}%{_sbindir}
 
 
 %changelog
+* Thu Oct 13 2022 Leigh Scott <leigh123linux@gmail.com> - 3:520.56.06-1
+- Update to 520.56.06
+
 * Sun Sep 25 2022 Dennnis Gilmore <dennis@ausil.us> - 3:515.76-2
 - add aarch64 support
 
