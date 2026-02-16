@@ -1,7 +1,7 @@
 Name:           nvidia-xconfig
 Epoch:          3
 Version:        590.48.01
-Release:        3%{?dist}
+Release:        4%{?dist}
 Summary:        NVIDIA X configuration file editor
 
 License:        GPLv2+
@@ -54,6 +54,9 @@ mkdir -p %{buildroot}%{_sbindir}
 
 
 %changelog
+* Mon Feb 16 2026 Nicolas Chauvet <kwizart@gmail.com> - 3:590.48.01-4
+- Rebuilt
+
 * Tue Feb 10 2026 Nicolas Chauvet <kwizart@gmail.com> - 3:590.48.01-3
 - Switch to Requires Xorg - rfbz#7403
 
