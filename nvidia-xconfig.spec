@@ -1,7 +1,7 @@
 Name:           nvidia-xconfig
 Epoch:          3
-Version:        590.48.01
-Release:        4%{?dist}
+Version:        595.45.04
+Release:        1%{?dist}
 Summary:        NVIDIA X configuration file editor
 
 License:        GPLv2+
@@ -54,6 +54,9 @@ mkdir -p %{buildroot}%{_sbindir}
 
 
 %changelog
+* Fri Mar 06 2026 Leigh Scott <leigh123linux@gmail.com> - 3:595.45.04-1
+- Update to 595.45.04 beta
+
 * Mon Feb 16 2026 Nicolas Chauvet <kwizart@gmail.com> - 3:590.48.01-4
 - Rebuilt
 
