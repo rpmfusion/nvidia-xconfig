@@ -1,7 +1,7 @@
 Name:           nvidia-xconfig
 Epoch:          3
 Version:        590.48.01
-Release:        3%{?dist}
+Release:        2%{?dist}
 Summary:        NVIDIA X configuration file editor
 
 License:        GPLv2+
@@ -17,7 +17,7 @@ BuildRequires: hostname
 BuildRequires: m4
 BuildRequires: libpciaccess-devel
 
-Requires: Xorg
+Requires: xorg-x11-drv-nvidia >= %{epoch}:%{version}
 
 
 %description
@@ -54,9 +54,6 @@ mkdir -p %{buildroot}%{_sbindir}
 
 
 %changelog
-* Tue Feb 10 2026 Nicolas Chauvet <kwizart@gmail.com> - 3:590.48.01-3
-- Switch to Requires Xorg - rfbz#7403
-
 * Mon Feb 02 2026 RPM Fusion Release Engineering <sergiomb@rpmfusion.org> - 3:590.48.01-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_44_Mass_Rebuild
 
