@@ -1,6 +1,6 @@
 Name:           nvidia-xconfig
 Epoch:          3
-Version:        580.126.18
+Version:        580.159.03
 Release:        1%{?dist}
 Summary:        NVIDIA X configuration file editor
 
@@ -54,6 +54,9 @@ mkdir -p %{buildroot}%{_sbindir}
 
 
 %changelog
+* Sun May 03 2026 Sérgio Basto <sergio@serjux.com> - 3:580.159.03-1
+- Update nvidia-xconfig to 580.159.03
+
 * Fri Feb 20 2026 Leigh Scott <leigh123linux@gmail.com> - 3:580.126.18-1
 - Update to 580.126.18 release
 
