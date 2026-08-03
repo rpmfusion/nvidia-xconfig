@@ -1,6 +1,6 @@
 Name:           nvidia-xconfig
 Epoch:          3
-Version:        610.43.03
+Version:        610.57.04
 Release:        1%{?dist}
 Summary:        NVIDIA X configuration file editor
 
@@ -54,6 +54,12 @@ mkdir -p %{buildroot}%{_sbindir}
 
 
 %changelog
+* Mon Aug 03 2026 Leigh Scott <leigh123linux@gmail.com> - 3:610.57.04-1
+- Update to 610.57.04 release
+
+* Sun Aug 02 2026 RPM Fusion Release Engineering <leigh123linux@rpmfusion.org> - 3:610.43.03-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_45_Mass_Rebuild
+
 * Wed Jul 08 2026 Leigh Scott <leigh123linux@gmail.com> - 3:610.43.03-1
 - Update to 610.43.03 release
 
